@@ -1,0 +1,58 @@
+/* pages/video/video.wxss */
+.section{
+    text-align: center;
+}
+#myVideo{
+    width: 100%;
+}
+.btn-area{
+    text-align: left;
+    display: flex;
+    padding: 5px 20px;
+    align-items: center;
+}
+.inputDanmu{
+    flex: 1;
+    background-color: #efefef;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 20px;
+    padding: 0 10px;
+}
+.postDanmu{
+    margin-left: 20px;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 20px;
+}
+.title{
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+    font-size: 20px;
+    color: #666;
+}
+
+scroll-view{
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.video{
+    display: flex;
+    margin-bottom: 20px;
+}
+.videoImg{
+    width:150px;
+    height: 75px;
+}
+.videoImg image{
+    width: 100%;
+    height: 100%;
+}
+.videoName{
+    flex:1;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+}

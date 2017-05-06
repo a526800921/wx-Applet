@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="list">
+    <block wx:for="{{newList}}" wx:key="{{k}}">
+        <view class="card">
+            <view class="cardbox">
+                <image src="{{item.top_image}}"></image>
+                <view class="title">{{item.title}}</view>
+                <view class="Velarium" id="{{item.news_id}}" bindtap="newsItem"></view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="body-view">
+    <loading hidden="{{hidden}}" bindchange="loadingChange">
+        加载中...
+    </loading>
+</view>

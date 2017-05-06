@@ -1,0 +1,11 @@
+<!--pages/item/item.wxml-->
+<view class="title">{{newList.title}}</view>
+<view class="image">
+    <image src="{{newList.top_image}}"></image>
+</view>
+<view class="main">
+    <view class="news">摘要：</view>
+    <text class="limit">{{newList.digest}}</text>
+    <view class="hr"></view>
+    <text>原文：{{newList.content}}</text>
+</view> 

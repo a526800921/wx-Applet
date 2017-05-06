@@ -1,0 +1,15 @@
+<!--pages/audio/audio.wxml-->
+<audio poster="{{nowPlay.poster}}" name="{{nowPlay.name}}" author="{{nowPlay.author}}" src="{{nowPlay.src}}" id="myAudio" controls bindended="endMusic" class="audioPlay" bindtimeupdate="funtimeupdate"></audio>
+<view class="Lyric">{{Lyric}}<view class="vertical"></view></view>
+<view class="title">歌曲推荐：</view>
+<scroll-view scroll-y="true" style="height: {{scrollHeight}}px;">
+    <view class="music" bindtap="playMusic" wx:for="{{musicList}}" wx:for-item="music" wx:for-index="idx" wx:key="{{idx}}">
+        <view class="musicImg">
+            <image src="{{music.poster}}"  data-idx="{{idx}}"></image>
+        </view>
+        <view class="musicName">
+            {{music.name}}
+            <view class="musicAuthor">{{music.author}}</view>
+        </view>
+    </view>
+</scroll-view>

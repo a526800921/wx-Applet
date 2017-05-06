@@ -1,0 +1,34 @@
+<!--pages/movie/movie.wxml-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" indicator-color="#FAFAFA" indicator-active-color="#4E97DF">
+  <block wx:for="{{banner}}" wx:key="{{i}}">
+    <swiper-item>
+      <image src="{{item.imgUrls}}" class="slide-image"/>
+      <view class="bannerTitle">{{item.title}}</view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="title">
+    <block wx:for="{{labelList}}" wx:key="{{i}}">
+        <view class="label">{{item.name}}</view>
+    </block>
+</view>
+
+<block wx:for="{{infoList}}" wx:key="{{k}}">
+    <view class="title">
+        <view class="caption">{{item.name}}</view>
+        <view class="titleBig">
+            <image src="{{item.imgUrlBig}}" class="imageBig"></image>
+            <view class="mainName">{{item.nameBig}}</view>
+            <view class="mainBrief">{{item.briefBig}}</view>
+        </view>
+        <block wx:for="{{item.main}}" wx:for-item="list" wx:key="{{j}}">
+            <view class="mainTitle">
+                <image src="{{list.imgUrl}}" class="imageMain"></image>
+                <view class="mainName">{{list.name}}</view>
+                <view class="mainBrief">{{list.brief}}</view>
+            </view>
+        </block>
+    </view>
+</block>

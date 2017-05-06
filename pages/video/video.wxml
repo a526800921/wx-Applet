@@ -1,0 +1,21 @@
+<!--pages/video/video.wxml-->
+<view class="section tc">
+  <video id="myVideo" src="{{src}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls autoplay="true" bindended="videoEnd"></video>
+  <view class="btn-area">
+    <input bindblur="bindInputBlur" class="inputDanmu" placeholder="弹幕..."  maxlength="30" value="{{value}}"/>
+    <button bindtap="bindSendDanmu" class="postDanmu">发送弹幕</button>
+  </view>
+</view>
+
+<view class="title">视频推荐：</view>
+
+<scroll-view scroll-y="true" style="height: {{scrollHeight}}px;">
+    <view class="video" bindtap="playvideo" wx:for="{{videoList}}" wx:for-item="video" wx:for-index="idx" wx:key="{{idx}}">
+        <view class="videoImg">
+            <image src="{{video.poster}}"  data-idx="{{idx}}"></image>
+        </view>
+        <view class="videoName">
+            {{video.name}}
+        </view>
+    </view>
+</scroll-view>
