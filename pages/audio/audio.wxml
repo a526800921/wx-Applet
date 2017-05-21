@@ -1,15 +1,71 @@
 <!--pages/audio/audio.wxml-->
-<audio poster="{{nowPlay.poster}}" name="{{nowPlay.name}}" author="{{nowPlay.author}}" src="{{nowPlay.src}}" id="myAudio" controls bindended="endMusic" class="audioPlay" bindtimeupdate="funtimeupdate"></audio>
-<view class="Lyric">{{Lyric}}<view class="vertical"></view></view>
-<view class="title">歌曲推荐：</view>
-<scroll-view scroll-y="true" style="height: {{scrollHeight}}px;">
-    <view class="music" bindtap="playMusic" wx:for="{{musicList}}" wx:for-item="music" wx:for-index="idx" wx:key="{{idx}}">
+
+<view class="flex">
+  <!--背景图模糊-->
+  <view class="bg">
+    <image src="{{nowPlay.poster}}"></image>
+  </view>
+  <!--遮罩-->
+  <view class="opicaty"></view>
+  <!--表层-->
+  <view class="rotate-disk-container">
+    <view class="musicInfo">{{nowPlay.name}} - {{nowPlay.author}}</view>
+
+    <view class="rotate-disk {{pauseStatus === false ? 'rotate-360' : 'rotate-360-paused'}}">
+      <image class="poster" src="{{nowPlay.poster}}"></image>
+    </view>
+
+    <view class="lyric">
+      {{Lyric}}
+    </view>
+
+    <view class="player">
+      <view class="clickPlay">
+
+<!--<button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>-->
+
+
+        <view class="playLeft" bindtap="audioPrev">
+          <image src="../../public/image/audio/prev.png"></image>
+        </view>
+
+        <view class="playCenter" bindtap="audioPlay">
+          <image src="../../public/image/audio/{{plays === true ? 'play' : 'pause'}}.png"></image>
+        </view>
+
+        <view class="playRight" bindtap="audioNext">
+          <image src="../../public/image/audio/next.png"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="openList" bindtap="openList">
+      <image src="../../public/image/audio/list.png"></image>
+    </view>
+  </view>
+  <!--列表层-->
+  <view class="musicList" style="top:-{{listTop}}%" animation="{{animationData}}">
+    <view class="title">
+      歌曲推荐：
+      <view class="titleImg" bindtap="closeList">
+        <image src="../../public/image/audio/top.png"></image>
+      </view>
+    </view>
+    <scroll-view scroll-y="true" style="height: {{scrollHeight}}px;">
+      <view class="music" bindtap="playMusic" wx:for="{{musicList}}" wx:for-item="music" wx:for-index="idx" wx:key="{{idx}}">
         <view class="musicImg">
-            <image src="{{music.poster}}"  data-idx="{{idx}}"></image>
+          <image src="{{music.poster}}" data-idx="{{idx}}"></image>
         </view>
         <view class="musicName">
-            {{music.name}}
-            <view class="musicAuthor">{{music.author}}</view>
+          {{music.name}}
+          <view class="musicAuthor">{{music.author}}</view>
         </view>
-    </view>
-</scroll-view>
+      </view>
+    </scroll-view>
+  </view>
+
+  
+</view>
+
+
+<audio poster="{{nowPlay.poster}}" name="{{nowPlay.name}}" author="{{nowPlay.author}}" src="{{nowPlay.src}}" id="myAudio" controls bindended="endMusic" class="audioPlay" bindtimeupdate="funtimeupdate"></audio>

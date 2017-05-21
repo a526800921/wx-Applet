@@ -1,34 +1,193 @@
 /* pages/audio/audio.wxss */
 page{
     text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0;
+    font-family: 'Microsoft YaHei';
 }
 
-.audioPlay{
-    
+#myAudio{
+  display: none;
 }
-.Lyric{
-    border: 1px solid #ddd;
-    height: 50px;
-    padding: 15px 20px;
-    margin: 10px 20px;
-    font-size: 20px;
-    line-height: 20px;
-    color: skyblue;
-    word-wrap: break-word;
+
+.flex{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
 }
-.vertical{
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
+.bg{
+  height: 100%;
+  width: 100%;
 }
+.bg image{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 176%;
+  left: -38%;
+  top: 0;
+  filter: blur(10px);
+}
+.opicaty{
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(50, 50, 50, 0.1);
+}
+
+.musicInfo{
+  position: absolute;
+  z-index: 20;
+  width: 80%;
+  height: 25px;
+  top: 20px;
+  left: 20px;
+  text-align: left;
+  color: #eee;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.lyric{
+  position: absolute;
+  z-index: 20;
+  height: 50px;
+  width: 100%;
+  bottom: 19%;
+  left: 0;
+  right: 0;
+  background-color: rgba(0 , 0, 0, 0.3); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 25px;
+  color: #fefefe;
+  overflow: hidden;
+}
+
+.player{
+  position: absolute;
+  z-index: 20;
+  height: 15%;
+  width: 100%;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clickPlay{
+  width: 60%;
+  height: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.clickPlay image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.playLeft{
+  width: 50px;
+  height: 50px;
+}
+.playCenter{
+  width: 70px;
+  height: 70px;
+}
+.playRight{
+  width: 50px;
+  height: 50px;
+}
+.openList{
+  position: absolute;
+  z-index: 20;
+  right: 20px;
+  top: 20px;
+  width: 25px;
+  height: 25px;
+}
+.openList image{
+  height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.rotate-disk-container{
+  position: absolute;
+  z-index: 15;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rotate-disk{
+  width: 600rpx;
+  height: 600rpx;
+  border-radius: 600rpx;
+  overflow: hidden;
+  border: 20rpx solid rgba(54, 43, 41, 0.2);
+  margin-top: -100px;
+}
+.poster{
+  width: 100%;
+  height: 100%;
+}
+.rotate-360{
+  animation: rotate 10s linear infinite;
+}
+.rotate-360-paused{
+  animation: rotate 10s linear infinite;
+  animation-play-state: paused;
+}
+@keyframes rotate
+{
+  0%   {transform: rotate(0deg);}
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+}
+
+.musicList{
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0 , 0, 0, 0.6);
+}
+
 .title{
     text-align: left;
-    font-size: 20px;
-    color: #666;
+    font-size: 18px;
+    color: #eee;
     padding-left: 20px;
     padding-top: 10px;
     margin-top: 10px; 
-    border-top: 1px solid #ddd;
+    position: relative;
+}
+.titleImg{
+  position: absolute;
+  right: 15px;
+  top: 0;
+  width: 40px;
+  height: 40px;
+
+}
+.titleImg image{
+  height: 100%;
+  width: 100%;
+  display: block;
 }
 
 scroll-view{
@@ -48,6 +207,8 @@ scroll-view{
 .musicImg image{
     width: 100%;
     height: 100%;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
 }
 .musicName{
     flex: 1;
@@ -58,8 +219,9 @@ scroll-view{
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
     padding: 5px 20px;
+    color: #fafafa;
 }
 .musicAuthor{
-    color: #666;
+    color: #eee;
     font-size: 16px;
 }
