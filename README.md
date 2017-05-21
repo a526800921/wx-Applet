@@ -6,6 +6,7 @@
 
 
 Home页<br>
+首页引入了API新闻接口，其他页面均为静态数据，保存在阿里云服务器上<br>
 ![image](https://raw.githubusercontent.com/a526800921/wx-Applet/1b05009e1aa69300236c8dd5c78cb5d9b163b4ba/readme-Img/Home.png)<br>
 audio<br>
 ![image](https://raw.githubusercontent.com/a526800921/wx-Applet/1b05009e1aa69300236c8dd5c78cb5d9b163b4ba/readme-Img/audio.png)<br>
